@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>📢 高考志愿报考院校查询</title>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <!-- 引入 ECharts 文件 -->
+    <script src="static/echarts.js" charset="utf-8"></script>
+    <!-- 引入 jquery-3.0.0.min.js 文件 -->
+    <script src="static/jquery-3.0.0.min.js"></script>
+    <script src="selectschool.js"></script>
+    <script src="drawpie.js"></script>
+    <script>
+      $(function () {
+        let li = $("#tabs");
+				let t = parseInt(li.get(0).selectedIndex);
+        handleChoose(t);
+        let cc = $("#tabs option");
+        let len = cc.length;
+        li.change(function () {
+          let t = parseInt(li.get(0).selectedIndex);
+          handleChoose(t);
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="topBar">✨ 你的专业 由你选择 🎓 Figure Out Your College Preference ✨</div>
+		<label id="topAnchor"></label>
+    <div class="main">
+      <div class="choose">
+        <div class="nameofchoose">🏫 按地区选学校</div>
+        <div class="choosearea">
+          <input
+            type="button"
+            value="北京"
+            id="btn1"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="天津"
+            id="btn2"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="河北"
+            id="btn3"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="内蒙古"
+            id="btn4"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="辽宁"
+            id="btn5"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="吉林"
+            id="btn6"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="黑龙江"
+            id="btn7"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="上海"
+            id="btn8"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="江苏"
+            id="btn9"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="浙江"
+            id="btn10"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="安徽"
+            id="btn11"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="福建"
+            id="btn12"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="江西"
+            id="btn13"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="山东"
+            id="btn14"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="河南"
+            id="btn15"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="湖北"
+            id="btn16"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="湖南"
+            id="btn17"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="广东"
+            id="btn18"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="广西"
+            id="btn19"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="海南"
+            id="btn20"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="重庆"
+            id="btn21"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="四川"
+            id="btn22"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="贵州"
+            id="btn23"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="云南"
+            id="btn24"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="西藏"
+            id="btn25"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="陕西"
+            id="btn26"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="甘肃"
+            id="btn27"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="青海"
+            id="btn28"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="宁夏"
+            id="btn29"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="新疆"
+            id="btn30"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="香港"
+            id="btn31"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="澳门"
+            id="btn32"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="台湾"
+            id="btn33"
+            onclick="SupendButtonClick(this);"
+          />
+          <input
+            type="button"
+            value="山西"
+            id="btn34"
+            onclick="SupendButtonClick(this);"
+          />
+        </div>
+        <!-- 选择部分 -->
+        <table class="schooltable">
+          <thead>
+            <tr>
+              <th class="schoolname">院校名称</th>
+              <th class="schooltype">院校类型</th>
+              <th class="schoolarea">所在地区</th>
+              <th>招生专业</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="pie">
+        <div class="nameofpie">🔥 分数区间院校数量</div>
+        <select name="status" id="tabs">
+          <option>2020文科</option>
+          <option>2019文科</option>
+          <option>2018文科</option>
+          <option>2020理科</option>
+          <option>2019理科</option>
+          <option>2018理科</option>
+        </select>
+
+        <!-- 图表部分 -->
+        <div id="pieChart" class="none active chart">
+          <div id="showChart" class="chart"></div>
+        </div>
+      </div>
+
+			<a href="#topAnchor" id="backToTop"></a>
+
+    </div>
+  </body>
+</html>
