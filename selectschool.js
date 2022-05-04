@@ -43,8 +43,8 @@ const choosearea = document.getElementsByClassName("choosearea");
 choosearea[0].addEventListener("click", function (event) {
   let target = event.target;
 
-  //css设置
   if (target.id.match(/[^\d]/g)) {
+    //css设置
     $('input[id^="btn"]').css({
       "background-color": defaultBGColor,
       color: "#232323",
@@ -52,6 +52,7 @@ choosearea[0].addEventListener("click", function (event) {
     target.style.backgroundColor = changeBGColor;
     target.style.color =  "#fff";
 
+    //事件
     let index = target.id.replace(/[^\d]/g, "") - 1;
     (function () {
       $.get("jsondata/" + area[index] + ".json").done(function schoolquery(
