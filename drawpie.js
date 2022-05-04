@@ -1,12 +1,12 @@
 function handleChoose(index) {
-  const choice = [
-    "2020年文科",
-    "2019年文科",
-    "2018年文科",
-    "2020年理科",
-    "2019年理科",
-    "2018年理科",
-  ];
+  // const choice = [
+  //   "2020年文科",
+  //   "2019年文科",
+  //   "2018年文科",
+  //   "2020年理科",
+  //   "2019年理科",
+  //   "2018年理科",
+  // ];
 
   const filename = [
     "2020wen",
@@ -28,19 +28,7 @@ function handleChoose(index) {
       formatter: "{a} <br/>{b} : {c} ({d}%)",
     },
     calculable: true,
-    // color: ["#893448", "#d95850", "#eb8146", "#ffb248", "#f2d643", "#ebdba4"],
     color: ["#FF8C00", "#fad859", "#98fb98", "#00bfff"],
-    // color: [
-    //   "#5470c6",
-    //   "#91cc75",
-    //   "#fac858",
-    //   "#ee6666",
-    //   "#73c0de",
-    //   "#3ba272",
-    //   "#fc8452",
-    //   "#9a60b4",
-    //   "#ea7ccc",
-    // ],
     series: [
       {
         name: "该分段对应院校数量",
